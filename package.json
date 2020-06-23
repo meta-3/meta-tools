@@ -1,0 +1,58 @@
+{
+  "name": "meta-tools",
+  "description": "Meta Tooling",
+  "version": "0.0.1",
+  "author": "Tyler Garlick @TylerGarlick",
+  "bin": {
+    "tools": "./bin/run"
+  },
+  "bugs": "https://github.com/TylerGarlick/meta-tools/issues",
+  "dependencies": {
+    "@oclif/command": "^1",
+    "@oclif/config": "^1",
+    "@oclif/plugin-help": "^3",
+    "inquirer": "^7.2.0",
+    "tslib": "^1"
+  },
+  "devDependencies": {
+    "@oclif/dev-cli": "^1",
+    "@types/jest": "^26.0.0",
+    "@types/node": "^10",
+    "globby": "^10",
+    "jest": "^26.0.1",
+    "ts-jest": "^26.1.1",
+    "ts-node": "^8",
+    "typescript": "^3.9.5"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "files": [
+    "/bin",
+    "/lib",
+    "/npm-shrinkwrap.json",
+    "/oclif.manifest.json"
+  ],
+  "homepage": "https://github.com/TylerGarlick/meta-tools",
+  "keywords": [
+    "oclif"
+  ],
+  "license": "MIT",
+  "main": "lib/index.js",
+  "oclif": {
+    "commands": "./lib/commands",
+    "bin": "tools",
+    "plugins": [
+      "@oclif/plugin-help"
+    ]
+  },
+  "repository": "TylerGarlick/meta-tools",
+  "scripts": {
+    "postpack": "rm -f oclif.manifest.json",
+    "prepack": "rm -rf lib && tsc -b && oclif-dev manifest && oclif-dev readme",
+    "test": "npx jest",
+    "test:watch": "npx jest --watchAll",
+    "version": "oclif-dev readme && git add README.md"
+  },
+  "types": "lib/index.d.ts"
+}
